@@ -31,6 +31,6 @@
 [submodule "vim/bundle/vim-git"]
 	path = vim/bundle/vim-git
 	url = https://github.com/tpope/vim-git
-[submodule "vim/bundle/obvious-mode"]
-	path = vim/bundle/obvious-mode
-	url = https://github.com/vim-scripts/Obvious-Mode
+[submodule "vim/bundle/obviousmode"]
+	path = vim/bundle/obviousmode
+	url = https://github.com/bsl/obviousmode

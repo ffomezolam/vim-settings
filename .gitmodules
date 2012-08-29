@@ -34,3 +34,6 @@
 [submodule "vim/bundle/obviousmode"]
 	path = vim/bundle/obviousmode
 	url = https://github.com/bsl/obviousmode
+[submodule "vim/bundle/vim-golang"]
+	path = vim/bundle/vim-golang
+	url = https://github.com/jnwhiteh/vim-golang

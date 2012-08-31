@@ -111,12 +111,4 @@ let g:obviousModeModifiedVertSplitHi = 'ctermbg=22'
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
-command! Pyflakes :call Pyflakes()
-function! Pyflakes()
-    let tmpfile = tempname()
-    execute "w" tmpfile
-    execute "set makeprg=(pyflakes\\ " . tmpfile . "\\\\\\|sed\\ s@" . tmpfile ."@%@)"
-    make
-    cw
-endfunction
-
+let g:tex_flavor='latex'

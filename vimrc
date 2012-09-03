@@ -107,8 +107,13 @@ let g:obviousModeModifiedNonCurrentHi = 'ctermbg=30'
 let g:obviousModeModifiedVertSplitHi = 'ctermbg=22'
 
 " syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%<%f\ %h%m%r
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+set statusline+=%=%-14.(%l,%c%V%)\ %P
 
-let g:tex_flavor='latex'
+" vim-LaTeX
+let g:tex_flavor = 'latex'
+" let b:doneTexCompiler = 1 " disable vim-latex compiler
+let g:Tex_CompileRule_pdf = 'make'
+" let g:syntastic_error_symbol='✗'
+

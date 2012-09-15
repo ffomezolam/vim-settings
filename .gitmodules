@@ -43,3 +43,6 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = https://github.com/wincent/Command-T
+[submodule "vim/bundle/vim-ipython"]
+	path = vim/bundle/vim-ipython
+	url = https://github.com/ivanov/vim-ipython

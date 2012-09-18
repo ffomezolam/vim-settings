@@ -7,13 +7,6 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" gui stuff
-if has('gui_running')
-    set guioptions-=rT
-    set guifont=Courier\ New
-    colorscheme torte
-endif
-
 " standard stuff
 filetype plugin indent on
 syntax on

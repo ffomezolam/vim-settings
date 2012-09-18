@@ -1,9 +1,13 @@
+"
+" .vimrc
+" 
 
 " load pathogen bundles
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" gui stuff
 if has('gui_running')
     set guioptions-=rT
     set guifont=Courier\ New
@@ -69,8 +73,9 @@ let mapleader=","
 " TODO: take command line args
 map <buffer> <S-e> :w<cr>:!/usr/bin/env python % <cr>
 
-map <leader>; :let @/=""<bar>echo "Search buffer cleared"<cr>
-
+" clear search buffer
+map <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
+" toggle line numbers
 nnoremap <F2> :set nonumber!<cr>:set foldcolumn=0<cr>
 
 noremap <C-J> gj
@@ -83,9 +88,15 @@ noremap <C-K> gk
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<cr>
 
+" TaskList
+map <leader>v <Plug>TaskList
+
 " Tagbar
-nnoremap <leader>l <ESC>:TagbarToggle<cr>
-inoremap <leader>l <ESC>:TagbarToggle<cr>
+nnoremap <leader>t <ESC>:TagbarToggle<cr>
+inoremap <leader>t <ESC>:TagbarToggle<cr>
+nnoremap <leader>r <ESC>:TagbarOpenAutoClose<cr>
+inoremap <leader>r <ESC>:TagbarOpenAutoClose<cr>
+let g:tagbar_autoclose = 1
 
 " Gundo
 nnoremap <leader>g <ESC>:GundoToggle<cr>

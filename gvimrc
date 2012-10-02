@@ -2,7 +2,8 @@
 " .gvimrc
 " 
 
-set guioptions-=T
+set guioptions-=m
 set guioptions-=r
-set guifont=Courier\ New
+set guioptions-=T
+set guifont=Ubuntu\ Mono\ 10
 colorscheme torte

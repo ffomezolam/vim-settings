@@ -40,11 +40,12 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 
-set shell=/bin/bash
+set shell=/bin/zsh
 " set lazyredraw
 set matchtime=3
 
 set title
+set number
 
 set mouse=a
 
@@ -110,11 +111,11 @@ let g:ConqueTerm_FastMode = 1
 let python_highlight_all = 1
 
 " obviousmode
-let g:obviousModeInsertHi = 'ctermbg=3'
-let g:obviousModeCmdwinHi = 'ctermbg=22'
-let g:obviousModeModifiedCurrentHi = 'ctermbg=2'
-let g:obviousModeModifiedNonCurrentHi = 'ctermbg=30'
-let g:obviousModeModifiedVertSplitHi = 'ctermbg=22'
+" let g:obviousModeInsertHi = 'ctermbg=3'
+" let g:obviousModeCmdwinHi = 'ctermbg=22'
+" let g:obviousModeModifiedCurrentHi = 'ctermbg=2'
+" let g:obviousModeModifiedNonCurrentHi = 'ctermbg=30'
+" let g:obviousModeModifiedVertSplitHi = 'ctermbg=22'
 
 " syntastic
 set statusline+=%<%f\ %h%m%r

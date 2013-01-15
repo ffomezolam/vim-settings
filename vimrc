@@ -121,6 +121,7 @@ let python_highlight_all = 1
 set statusline+=%<%f\ %h%m%r
 set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%=%-14.(%l,%c%V%)\ %P
+let g:syntastic_python_checker_args = '-E'
 
 " vim-LaTeX
 let g:tex_flavor = 'latex'

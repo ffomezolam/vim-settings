@@ -1,7 +1,3 @@
-"
-" .vimrc
-" 
-
 " load pathogen bundles
 filetype off
 call pathogen#runtime_append_all_bundles()
@@ -11,19 +7,19 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 
+" color settings
+set background=dark
+colorscheme moria
+
 set nocompatible
 set modeline
 set modelines=0
 
 " tab settings
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 set expandtab
-
-" color settings
-set background=dark
-colorscheme moria
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 set encoding=utf-8
 set autoindent
@@ -41,8 +37,9 @@ set backspace=indent,eol,start
 set laststatus=2
 
 set shell=/bin/zsh
-" set lazyredraw
+set lazyredraw
 set matchtime=3
+set magic
 
 set title
 set number
@@ -62,10 +59,21 @@ set formatoptions=qrn1
 hi ColorColumn ctermbg=red
 set colorcolumn=80
 
-let mapleader=","
+set noswapfile
+
+" set lbr
+" set tw=500
+
+" set noerrorbells
+" set novisualbell
+" set t_vb=
+" set tm=500
+
+let mapleader="`"
+"let g:mapleader="<S-,>"
 
 " TODO: take command line args
-map <buffer> <S-e> :w<cr>:!/usr/bin/env python % <cr>
+" map <buffer> <S-e> :w<cr>:!/usr/bin/env python % <cr>
 
 " clear search buffer
 map <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
@@ -74,6 +82,11 @@ nnoremap <F2> :set nonumber!<cr>:set foldcolumn=0<cr>
 
 noremap <C-J> gj
 noremap <C-K> gk
+
+noremap <A-Up> :tabfirst<cr>
+noremap <A-Left> :tabprevious<cr>
+noremap <A-Right> :tabnext<cr>
+noremap <A-Down> :tablast<cr>
 
 "
 " PLUGIN configurations

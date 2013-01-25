@@ -1,84 +1,90 @@
+set nocompatible
+
 " load pathogen bundles
-filetype off
-call pathogen#runtime_append_all_bundles()
+"
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
 call pathogen#helptags()
 
-" standard stuff
 filetype plugin indent on
 syntax on
 
+" general config
+"
+set autoread
+set backspace=indent,eol,start
+set encoding=utf-8
+set guicursor=a:blinkon0
+set hidden
+set history=1000
+set laststatus=2
+set lazyredraw
+set magic
+set matchtime=3
+set mouse=a
+set number
+set ruler
+set shell=/bin/zsh
+set showcmd
+set showmatch
+set showmode
+set title
+set ttyfast
+set visualbell
+
+" search settings
+"
+set gdefault
+set ignorecase
+set incsearch
+set hlsearch
+set smartcase
+
+set wildmenu
+set wildmode=list:longest
+
+" disable backup files
+"
+set noswapfile
+set nobackup
+set nowritebackup
+
 " color settings
+"
 set background=dark
 colorscheme moria
 
-set nocompatible
-set modeline
-set modelines=0
-
-" tab settings
+" indent settings
+"
+set autoindent
 set expandtab
 set shiftwidth=4
+set smartindent
 set softtabstop=4
 set tabstop=4
 
-set encoding=utf-8
-set autoindent
-set smartindent
-set showmode
-set showcmd
-set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
+set list listchars=tab:\ \ ,trail:-
 
-set ttyfast
-set ruler
-set backspace=indent,eol,start
-set laststatus=2
+" scroll settings
+"
+set scrolloff=8
 
-set shell=/bin/zsh
-set lazyredraw
-set matchtime=3
-set magic
-
-set title
-set number
-
-set mouse=a
-
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-
+" width settings
+"
 set wrap
 set textwidth=79
 set formatoptions=qrn1
 hi ColorColumn ctermbg=red
 set colorcolumn=80
 
-set noswapfile
+"
+" Mappings
+"
 
-" set lbr
-" set tw=500
-
-" set noerrorbells
-" set novisualbell
-" set t_vb=
-" set tm=500
-
-let mapleader="`"
-"let g:mapleader="<S-,>"
-
-" TODO: take command line args
-" map <buffer> <S-e> :w<cr>:!/usr/bin/env python % <cr>
+let mapleader=","
 
 " clear search buffer
-map <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
-" toggle line numbers
-nnoremap <F2> :set nonumber!<cr>:set foldcolumn=0<cr>
+noremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
 
 noremap <C-J> gj
 noremap <C-K> gk
@@ -89,56 +95,32 @@ noremap <A-Right> :tabnext<cr>
 noremap <A-Down> :tablast<cr>
 
 "
-" PLUGIN configurations
+" Plugins
 " 
 
-" NERDTree
-nnoremap <C-n> :NERDTreeToggle<cr>
-
-" TaskList
-map <leader>v <Plug>TaskList
-
-" Tagbar
-nnoremap <leader>t <ESC>:TagbarToggle<cr>
-inoremap <leader>t <ESC>:TagbarToggle<cr>
-nnoremap <leader>r <ESC>:TagbarOpenAutoClose<cr>
-inoremap <leader>r <ESC>:TagbarOpenAutoClose<cr>
-let g:tagbar_autoclose = 1
+" Conque
+let g:ConqueTerm_PyVersion = 3
+let g:ConqueTerm_FastMode = 1
 
 " Gundo
 nnoremap <leader>g <ESC>:GundoToggle<cr>
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 30
 
-" Conque
-let g:ConqueTerm_PyVersion = 3
-let g:ConqueTerm_FastMode = 1
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<cr>
 
-" miniBufExpl
-" let g:miniBufExplMapWindowNavVim = 1
-" let g:miniBufExplMapWindowNavArrows = 1
-" let g:miniBufExplMapCTabSwitchBufs = 1
-" let g:miniBufExplModSelTarget = 1
-
-" Syntaxflakes
-let python_highlight_all = 1
-
-" obviousmode
-" let g:obviousModeInsertHi = 'ctermbg=3'
-" let g:obviousModeCmdwinHi = 'ctermbg=22'
-" let g:obviousModeModifiedCurrentHi = 'ctermbg=2'
-" let g:obviousModeModifiedNonCurrentHi = 'ctermbg=30'
-" let g:obviousModeModifiedVertSplitHi = 'ctermbg=22'
-
-" syntastic
+" Syntastic
 set statusline+=%<%f\ %h%m%r
 set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%=%-14.(%l,%c%V%)\ %P
 let g:syntastic_python_checker_args = '-E'
 
-" vim-LaTeX
-let g:tex_flavor = 'latex'
-" let b:doneTexCompiler = 1 " disable vim-latex compiler
-let g:Tex_CompileRule_pdf = 'make'
-" let g:syntastic_error_symbol='✗'
+" Tagbar
+nnoremap <leader>t :TagbarToggle<cr>
+nnoremap <leader>r :TagbarOpenAutoClose<cr>
+let g:tagbar_autoclose = 1
+
+" TaskList
+map <leader>v <Plug>TaskList
 

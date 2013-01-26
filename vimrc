@@ -63,7 +63,7 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 
-set list listchars=tab:\ \ ,trail:-
+set list listchars=tab:\»\-,trail:·
 
 " scroll settings
 "
@@ -76,6 +76,10 @@ set textwidth=79
 set formatoptions=qrn1
 hi ColorColumn ctermbg=red
 set colorcolumn=80
+
+" other settings
+"
+let g:tex_flavor = 'latex'
 
 "
 " Mappings

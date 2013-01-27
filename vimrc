@@ -75,7 +75,6 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=80
-" set cursorline
 highlight ColorColumn ctermbg=red
 highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
 highlight CursorColumn cterm=NONE ctermbg=red
@@ -83,6 +82,7 @@ highlight CursorColumn cterm=NONE ctermbg=red
 " other settings
 "
 let g:tex_flavor = 'latex'
+let python_highlight_all = 1
 
 "
 " Mappings
@@ -105,7 +105,7 @@ nnoremap <leader>c :set cursorline!<bar>echo "Toggled cursorline"<cr>
 
 "
 " Plugins
-" 
+"
 
 " Conque
 let g:ConqueTerm_PyVersion = 3

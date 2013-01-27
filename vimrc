@@ -69,13 +69,16 @@ set list listchars=tab:\»\-,trail:·
 "
 set scrolloff=8
 
-" width settings
+" highlighting and word wrap settings
 "
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-hi ColorColumn ctermbg=red
 set colorcolumn=80
+" set cursorline
+highlight ColorColumn ctermbg=red
+highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
+highlight CursorColumn cterm=NONE ctermbg=red
 
 " other settings
 "
@@ -87,9 +90,6 @@ let g:tex_flavor = 'latex'
 
 let mapleader=","
 
-" clear search buffer
-noremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
-
 noremap <C-J> gj
 noremap <C-K> gk
 
@@ -97,6 +97,11 @@ noremap <A-Up> :tabfirst<cr>
 noremap <A-Left> :tabprevious<cr>
 noremap <A-Right> :tabnext<cr>
 noremap <A-Down> :tablast<cr>
+
+" clear search buffer
+nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
+
+nnoremap <leader>c :set cursorline!<bar>echo "Toggled cursorline"<cr>
 
 "
 " Plugins

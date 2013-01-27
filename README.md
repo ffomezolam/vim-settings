@@ -3,13 +3,14 @@ vim-settings
 
 Contains the following vim scripts:
 
-pathogen
+abolish
 command-t
 conque
 ctrlp
 gundo
 nerdtree
 obviousmode
+pathogen
 snipmate
 syntastic
 tabular

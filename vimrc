@@ -100,8 +100,11 @@ noremap <A-Down> :tablast<cr>
 
 " clear search buffer
 nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
-
+" toggle cursor line
 nnoremap <leader>c :set cursorline!<bar>echo "Toggled cursorline"<cr>
+" toggle tab highlights
+nnoremap <leader>h :set list listchars=tab:\ \ ,trail:·<cr>
+nnoremap <leader>H :set list listchars=tab:\»\-,trail:·<cr>
 
 "
 " Plugins

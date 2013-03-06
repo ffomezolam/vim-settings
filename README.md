@@ -1,28 +1,14 @@
 vim-settings
 ============
 
-Contains the following vim scripts:
+see vim folder for plugins and other scripts
 
-abolish
-command-t
-conque
-ctrlp
-gundo
-nerdtree
-obviousmode
-pathogen
-snipmate
-syntastic
-tabular
-tagbar
-vim-fugitive
-vim-git
-vim-golang
-vim-ipython
-vim-latex
-vim-surround
+plugins
+-------
 
-Contains the following color scripts:
+see bundle folder
 
-moria
+colors
+------
 
+see colors folder

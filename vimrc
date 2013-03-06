@@ -43,6 +43,8 @@ set smartcase
 set wildmenu
 set wildmode=list:longest
 
+set completeopt=longest,menuone
+
 " disable backup files
 "
 set noswapfile

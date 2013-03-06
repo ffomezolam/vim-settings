@@ -1,14 +1,19 @@
 set nocompatible
 
+"
 " load pathogen bundles
 "
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+"
+" global settings
+"
 filetype plugin indent on
 syntax on
 
+"
 " general config
 "
 set autoread
@@ -32,6 +37,7 @@ set title
 set ttyfast
 set visualbell
 
+"
 " search settings
 "
 set gdefault
@@ -45,17 +51,20 @@ set wildmode=list:longest
 
 set completeopt=longest,menuone
 
+"
 " disable backup files
 "
 set noswapfile
 set nobackup
 set nowritebackup
 
+"
 " color settings
 "
 set background=dark
 colorscheme moria
 
+"
 " indent settings
 "
 set autoindent
@@ -67,10 +76,12 @@ set tabstop=4
 
 set list listchars=tab:\»\-,trail:·
 
+"
 " scroll settings
 "
 set scrolloff=8
 
+"
 " highlighting and word wrap settings
 "
 set wrap
@@ -81,6 +92,7 @@ highlight ColorColumn ctermbg=red
 highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
 highlight CursorColumn cterm=NONE ctermbg=red
 
+"
 " other settings
 "
 let g:tex_flavor = 'latex'
@@ -91,14 +103,6 @@ let python_highlight_all = 1
 "
 
 let mapleader=","
-
-noremap <C-J> gj
-noremap <C-K> gk
-
-noremap <A-Up> :tabfirst<cr>
-noremap <A-Left> :tabprevious<cr>
-noremap <A-Right> :tabnext<cr>
-noremap <A-Down> :tablast<cr>
 
 " clear search buffer
 nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>

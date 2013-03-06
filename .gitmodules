@@ -52,3 +52,18 @@
 [submodule "vim/bundle/abolish"]
 	path = vim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/taglist-plus"]
+	path = vim/bundle/taglist-plus
+	url = https://github.com/vim-scripts/taglist-plus.git
+[submodule "vim/bundle/vim-project"]
+	path = vim/bundle/vim-project
+	url = https://github.com/shemerey/vim-project.git
+[submodule "vim/bundle/bufexplorer"]
+	path = vim/bundle/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "vim/bundle/c.vim"]
+	path = vim/bundle/c.vim
+	url = https://github.com/vim-scripts/c.vim.git

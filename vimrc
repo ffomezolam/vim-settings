@@ -93,6 +93,11 @@ highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
 highlight CursorColumn cterm=NONE ctermbg=red
 
 "
+" fold settings
+"
+set foldmethod=indent
+
+"
 " other settings
 "
 let g:tex_flavor = 'latex'
@@ -111,6 +116,11 @@ nnoremap <leader>c :set cursorline!<bar>echo "Toggled cursorline"<cr>
 " toggle tab highlights
 nnoremap <leader>h :set list listchars=tab:\ \ ,trail:·<cr>
 nnoremap <leader>H :set list listchars=tab:\»\-,trail:·<cr>
+" disable arrow keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
 "
 " Plugins

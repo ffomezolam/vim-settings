@@ -96,6 +96,10 @@ highlight CursorColumn cterm=NONE ctermbg=red
 " fold settings
 "
 set foldmethod=indent
+map <leader>fi :set foldmethod=indent<cr>
+map <leader>fs :set foldmethod=syntax<cr>
+map <leader>fm :set foldmethod=marker<cr>
+map <leader>fd :set foldmethod=diff<cr>
 
 "
 " other settings

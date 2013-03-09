@@ -8,14 +8,12 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "
-" global settings
-"
-filetype plugin indent on
-syntax on
-
-"
 " general config
 "
+filetype plugin on
+filetype indent on
+syntax on
+
 set autoread
 set backspace=indent,eol,start
 set encoding=utf-8
@@ -24,27 +22,43 @@ set hidden
 set history=1000
 set laststatus=2
 set lazyredraw
-set magic
-set matchtime=3
 set mouse=a
 set number
 set ruler
 set shell=/bin/zsh
 set showcmd
-set showmatch
 set showmode
 set title
 set ttyfast
 set visualbell
 
 "
+" map settings
+"
+let mapleader=","
+
+"
+" buffer settings
+"
+" return to last edit position when opening files
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+" remember buffer info on close
+set viminfo^=%
+
+"
 " search settings
 "
 set gdefault
 set ignorecase
+set smartcase
 set incsearch
 set hlsearch
-set smartcase
+set magic
+set showmatch
+set matchtime=3
 
 set wildmenu
 set wildmode=list:longest
@@ -111,8 +125,6 @@ let python_highlight_all = 1
 " Mappings
 "
 
-let mapleader=","
-
 " clear search buffer
 nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
 " toggle cursor line
@@ -125,6 +137,24 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+" fast save
+nmap <leader>w :w!<cr>
+" treat long lines as break lines
+map j gj
+map k gk
+" multiple windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+" tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+" buffers
+" switch to directory of current buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 "
 " Plugins

@@ -1,15 +1,10 @@
-source ~/.config/vundle.vim
+source ~/.config/vim/vundle.vim
 
 filetype plugin indent on
-
-set nocompatible
 
 "
 " load pathogen bundles
 "
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
 
 "
 " general config

@@ -1,12 +1,17 @@
 vim-settings
 ============
 
-see vim folder for plugins and other scripts
+a vim setup
 
 plugins
 -------
 
-see bundle folder
+### installing
+plugins managed via vundle. open vim and type `:BundleInstall` to clone and
+install plugins
+
+### plugin list
+see vundle.vim
 
 colors
 ------

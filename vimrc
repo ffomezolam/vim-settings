@@ -1,3 +1,7 @@
+source ~/.config/vundle.vim
+
+filetype plugin indent on
+
 set nocompatible
 
 "
@@ -10,8 +14,6 @@ call pathogen#helptags()
 "
 " general config
 "
-filetype plugin on
-filetype indent on
 syntax on
 
 set autoread

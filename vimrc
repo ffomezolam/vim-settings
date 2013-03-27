@@ -3,10 +3,6 @@ source ~/.config/vim/vundle.vim
 filetype plugin indent on
 
 "
-" load pathogen bundles
-"
-
-"
 " general config
 "
 syntax on
@@ -48,7 +44,6 @@ set viminfo^=%
 "
 " search settings
 "
-set gdefault
 set ignorecase
 set smartcase
 set incsearch
@@ -107,10 +102,10 @@ highlight CursorColumn cterm=NONE ctermbg=red
 " fold settings
 "
 set foldmethod=indent
-map <leader>fi :set foldmethod=indent<cr>
-map <leader>fs :set foldmethod=syntax<cr>
-map <leader>fm :set foldmethod=marker<cr>
-map <leader>fd :set foldmethod=diff<cr>
+map <leader>fi :setlocal foldmethod=indent<cr>
+map <leader>fs :setlocal foldmethod=syntax<cr>
+map <leader>fm :setlocal foldmethod=marker<cr>
+map <leader>fd :setlocal foldmethod=diff<cr>
 
 "
 " other settings
@@ -157,6 +152,10 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Plugins
 "
 
+" TagList-Plus
+let Tlist_Use_Right_Window = 1
+let Tlist_WinWidth = 'auto'
+
 " Conque
 let g:ConqueTerm_PyVersion = 3
 let g:ConqueTerm_FastMode = 1
@@ -182,4 +181,3 @@ let g:tagbar_autoclose = 1
 
 " TaskList
 map <leader>v <Plug>TaskList
-

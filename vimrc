@@ -1,6 +1,9 @@
 source ~/.config/vim/vundle.vim
 
-filetype plugin indent on
+filetype on
+filetype plugin on
+filetype indent on
+
 
 "
 " general config
@@ -154,7 +157,6 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " TagList-Plus
 let Tlist_Use_Right_Window = 1
-let Tlist_WinWidth = 'auto'
 
 " Conque
 let g:ConqueTerm_PyVersion = 3

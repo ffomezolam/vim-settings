@@ -155,9 +155,6 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Plugins
 "
 
-" TagList-Plus
-let Tlist_Use_Right_Window = 1
-
 " Conque
 let g:ConqueTerm_PyVersion = 3
 let g:ConqueTerm_FastMode = 1
@@ -177,9 +174,9 @@ set statusline+=%=%-14.(%l,%c%V%)\ %P
 let g:syntastic_python_checker_args = '-E'
 
 " Tagbar
-nnoremap <leader>t :TagbarToggle<cr>
-nnoremap <leader>r :TagbarOpenAutoClose<cr>
-let g:tagbar_autoclose = 1
+nnoremap <leader>tt :TagbarToggle<cr>
+nnoremap <leader>tr :TagbarOpenAutoClose<cr>
+let g:tagbar_autoclose = 0
 
 " TaskList
 map <leader>v <Plug>TaskList

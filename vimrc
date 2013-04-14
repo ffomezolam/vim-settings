@@ -155,6 +155,9 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Plugins
 "
 
+" Less-Cmd
+let g:less_compress = 1
+
 " Conque
 let g:ConqueTerm_PyVersion = 3
 let g:ConqueTerm_FastMode = 1
@@ -180,3 +183,32 @@ let g:tagbar_autoclose = 0
 
 " TaskList
 map <leader>v <Plug>TaskList
+
+" NeoComplCache
+let g:neocomplcache_enable_at_startus = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_enable_auto_select = 1
+
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+inoremap <expr> <C-g> neocomplcache#undo_completion()
+inoremap <expr> <C-l> neocomplcache#complete_common_string()
+inoremap <expr> <CR> neocomplcache#smart_close_popup() . "\<CR>"
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <C-h> neocomplcache#smart_close_popup() . "\<C-h>"
+inoremap <expr> <BS> neocomplcache#smart_close_popup() . "\<C-h>"
+inoremap <expr> <C-y> neocomplcache#close_popup()
+inoremap <expr> <C-e> neocomplcache#cancel_popup()
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+

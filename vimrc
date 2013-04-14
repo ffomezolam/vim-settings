@@ -184,12 +184,22 @@ let g:tagbar_autoclose = 0
 " TaskList
 map <leader>v <Plug>TaskList
 
-" supertab
-let g:SuperTabMappingForward = '<c-s-k>'
-let g:SuperTabMappingBackward = '<c-s-l>'
+" NeoSnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<tab>"
+imap <expr><s-tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-p>" : "\<tab>"
+smap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
+
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " NeoComplCache
-let g:neocomplcache_enable_at_startus = 1
+let g:acp_enableAtStartup = 0
+let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_min_syntax_length = 3
@@ -203,7 +213,6 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 inoremap <expr> <C-g> neocomplcache#undo_completion()
 inoremap <expr> <C-l> neocomplcache#complete_common_string()
 inoremap <expr> <CR> neocomplcache#smart_close_popup() . "\<CR>"
-inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <C-h> neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr> <BS> neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr> <C-y> neocomplcache#close_popup()

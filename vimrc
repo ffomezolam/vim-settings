@@ -184,6 +184,10 @@ let g:tagbar_autoclose = 0
 " TaskList
 map <leader>v <Plug>TaskList
 
+" supertab
+let g:SuperTabMappingForward = '<c-s-k>'
+let g:SuperTabMappingBackward = '<c-s-l>'
+
 " NeoComplCache
 let g:neocomplcache_enable_at_startus = 1
 let g:neocomplcache_enable_smart_case = 1
@@ -199,7 +203,7 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 inoremap <expr> <C-g> neocomplcache#undo_completion()
 inoremap <expr> <C-l> neocomplcache#complete_common_string()
 inoremap <expr> <CR> neocomplcache#smart_close_popup() . "\<CR>"
-inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <C-h> neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr> <BS> neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr> <C-y> neocomplcache#close_popup()

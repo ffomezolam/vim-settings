@@ -198,25 +198,28 @@ endif
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " NeoComplCache
-let g:acp_enableAtStartup = 0
+let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_enable_auto_select = 1
 
 if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-inoremap <expr> <C-g> neocomplcache#undo_completion()
-inoremap <expr> <C-l> neocomplcache#complete_common_string()
-inoremap <expr> <CR> neocomplcache#smart_close_popup() . "\<CR>"
+inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
 inoremap <expr> <C-h> neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr> <BS> neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr> <C-y> neocomplcache#close_popup()
 inoremap <expr> <C-e> neocomplcache#cancel_popup()
+
+inoremap <expr> <C-g> neocomplcache#undo_completion()
+inoremap <expr> <C-l> neocomplcache#complete_common_string()
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags

@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-abolish'
-Bundle 'vim-scripts/bufexplorer.zip'
+Bundle 'vim-scripts/minibufexplorerpp'
 Bundle 'vim-scripts/c.vim'
 Bundle 'wincent/Command-T'
 Bundle 'rosenfeld/conque-term'
@@ -35,3 +35,4 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/TaskList.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-haml'
+Bundle 'Lokaltog/powerline'

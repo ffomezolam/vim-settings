@@ -4,6 +4,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
+set rtp+=~/.config/vim/vim/bundle/powerline/powerline/bindings/vim
 
 "
 " general config
@@ -155,6 +156,9 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Plugins
 "
 
+" Powerline
+set noshowmode
+
 " Less-Cmd
 let g:less_compress = 1
 
@@ -183,6 +187,11 @@ let g:tagbar_autoclose = 0
 
 " TaskList
 map <leader>v <Plug>TaskList
+
+" MiniBufExplorerpp
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 " NeoSnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)

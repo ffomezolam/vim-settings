@@ -8,11 +8,11 @@ plugins
 
 ### installing
 
-1. install the vundle submodule: `git submodule init; git submodule update`
-2. install plugins via vundle. open vim and type `:BundleInstall`
+1. install neobundle
+2. install plugins via neobundle
 
 ### plugin list
-see vundle.vim
+see neobundle.vim
 
 colors
 ------

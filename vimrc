@@ -1,4 +1,4 @@
-source ~/.config/vim/vundle.vim
+source ~/.config/vim/neobundle.vim
 
 filetype on
 filetype plugin on
@@ -171,9 +171,6 @@ nnoremap <leader>g <ESC>:GundoToggle<cr>
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 30
 
-" NERDTree
-nnoremap <leader>n :NERDTreeToggle<cr>
-
 " Syntastic
 set statusline+=%<%f\ %h%m%r
 set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
@@ -240,4 +237,13 @@ if has('conceal')
 endif
 
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Unite
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <space>/ :Unite grep:.<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+
+" VimFiler
+let g:vimfiler_as_default_explorer = 1
+nnoremap <leader>n :VimFilerExplorer<cr>
 

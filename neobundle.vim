@@ -32,6 +32,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'airblade/vim-gitgutter'
 
 " utilities
 NeoBundle 'tpope/vim-abolish'

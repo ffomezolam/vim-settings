@@ -180,36 +180,41 @@ let g:syntastic_python_checker_args = '-E'
 " TaskList
 map <leader>v <Plug>TaskList
 
-" NeoComplCache
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+" NeoComplete
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
 
-inoremap <expr> <C-h> neocomplcache#smart_close_popup() . "\<C-h>"
-inoremap <expr> <BS> neocomplcache#smart_close_popup() . "\<C-h>"
-inoremap <expr> <C-y> neocomplcache#close_popup()
-inoremap <expr> <C-e> neocomplcache#cancel_popup()
-
-inoremap <expr> <C-g> neocomplcache#undo_completion()
-inoremap <expr> <C-l> neocomplcache#complete_common_string()
-
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+inoremap <expr><tab> pubvisible() ? "\<C-n>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<tab>"
+inoremap <expr><C-h> neocomplete#smart_close_popup() . "\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup() . "\<C-h>"
+inoremap <expr><C-y> neocomplete#close_popup()
+inoremap <expr><C-e> neocomplete#cancel_popup()
+" let g:neocomplcache_enable_camel_case_completion = 1
+" 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
 
 " NeoSnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)

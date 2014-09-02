@@ -18,7 +18,7 @@ NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tpope/vim-git'
 
 " interface
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'honza/vim-snippets'

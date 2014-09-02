@@ -189,7 +189,7 @@ map <leader>v <Plug>TaskList
 " let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-map <leader>b :MiniBufExplorer<cr>
+" map <leader>b :MiniBufExplorer<cr>
 
 " NeoComplCache
 let g:neocomplcache_enable_auto_select = 1
@@ -239,11 +239,15 @@ endif
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " Unite
-nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <space>/ :Unite grep:.<cr>
-nnoremap <space>s :Unite -quick-match buffer<cr>
+nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<cr>
+nnoremap <leader>s :<C-u>Unite grep:.<cr>
+let g:unite_source_grep_max_candidates = 200
+nnoremap <leader>b :<C-u>Unite -quick-match buffer<cr>
+nnoremap <leader>u :<C-u>Unite buffer file<cr>
+nnoremap <leader>o :<C-u>Unite outline<cr>
 
 " VimFiler
 let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
 nnoremap <leader>n :VimFilerExplorer<cr>
 

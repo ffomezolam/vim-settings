@@ -16,6 +16,7 @@ NeoBundle 'tpope/vim-haml'
 NeoBundle 'xsbeats/vim-blade'
 NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tpope/vim-git'
+NeoBundle 'othree/html5-syntax.vim'
 
 " interface
 NeoBundle 'Shougo/neocomplete'

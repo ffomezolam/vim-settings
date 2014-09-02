@@ -177,19 +177,8 @@ set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%=%-14.(%l,%c%V%)\ %P
 let g:syntastic_python_checker_args = '-E'
 
-" Tagbar
-nnoremap <leader>tt :TagbarToggle<cr>
-nnoremap <leader>tr :TagbarOpenAutoClose<cr>
-let g:tagbar_autoclose = 0
-
 " TaskList
 map <leader>v <Plug>TaskList
-
-" MiniBufExplorerpp
-" let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-" map <leader>b :MiniBufExplorer<cr>
 
 " NeoComplCache
 let g:neocomplcache_enable_auto_select = 1

@@ -28,6 +28,7 @@ set showmode
 set title
 set ttyfast
 set visualbell
+set tags=./tags,tags;$HOME
 
 "
 " map settings
@@ -77,12 +78,13 @@ colorscheme moria
 "
 " indent settings
 "
-set autoindent
 set expandtab
+set smarttab
 set shiftwidth=4
-set smartindent
-set softtabstop=4
 set tabstop=4
+set softtabstop=4
+set autoindent
+set smartindent
 
 set list listchars=tab:\»\-,trail:·
 
@@ -106,10 +108,6 @@ highlight CursorColumn cterm=NONE ctermbg=red
 " fold settings
 "
 set foldmethod=indent
-map <leader>fi :setlocal foldmethod=indent<cr>
-map <leader>fs :setlocal foldmethod=syntax<cr>
-map <leader>fm :setlocal foldmethod=marker<cr>
-map <leader>fd :setlocal foldmethod=diff<cr>
 
 "
 " other settings
@@ -123,31 +121,43 @@ let python_highlight_all = 1
 
 " clear search buffer
 nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
+
 " toggle cursor line
 nnoremap <leader>c :set cursorline!<bar>echo "Toggled cursorline"<cr>
+
 " toggle tab highlights
 nnoremap <leader>h :set list listchars=tab:\ \ ,trail:·<cr>
 nnoremap <leader>H :set list listchars=tab:\»\-,trail:·<cr>
+
 " disable arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+
+" remap arrow keys to window resize
+noremap <up> <C-w>+
+noremap <down> <C-w>-
+noremap <left> 3<C-w>>
+noremap <right> 3<C-w><
+
+" magic regex
+nnoremap / /\v
+nnoremap ? ?\v
+
 " fast save
 nmap <leader>w :w!<cr>
+
 " treat long lines as break lines
 map j gj
 map k gk
+
 " multiple windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-" tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+
 " buffers
 " switch to directory of current buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -156,20 +166,23 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Plugins
 "
 
-" Powerline
-set noshowmode
-
 " Less-Cmd
 let g:less_compress = 1
 
-" Conque
-let g:ConqueTerm_PyVersion = 3
-let g:ConqueTerm_FastMode = 1
-
 " Gundo
-nnoremap <leader>g <ESC>:GundoToggle<cr>
+nnoremap <leader>U <ESC>:GundoToggle<cr>
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 30
+
+" Fugitive
+noremap <leader>g :Git
+noremap <leader>gb :Gblame<cr>
+noremap <leader>gc :Gcommit<cr>
+noremap <leader>gd :Gdiff<cr>
+noremap <leader>gp :Git push<cr>
+noremap <leader>gr :Gremove<cr>
+noremap <leader>gs :Gstatus<cr>
+noremap <leader>ga :Gwrite<cr>
 
 " Syntastic
 set statusline+=%<%f\ %h%m%r
@@ -233,12 +246,32 @@ endif
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " Unite
-nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<cr>
-nnoremap <leader>s :<C-u>Unite grep:.<cr>
-let g:unite_source_grep_max_candidates = 200
-nnoremap <leader>b :<C-u>Unite -quick-match buffer<cr>
-nnoremap <leader>u :<C-u>Unite buffer file<cr>
-nnoremap <leader>o :<C-u>Unite outline<cr>
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+endif
+
+function! s:unite_settings()
+    nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+
+function! s:unite_settings()
+    nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+
+nnoremap [unite] <Nop>
+nmap <space> [unite]
+
+nnoremap [unite]<space> :Unite -no-split -start-insert source<cr>
+nnoremap [unite]f :Unite -no-split -start-insert file_rec/async<cr>
+nnoremap [unite]g :Unite -no-split grep:.<cr>
+nnoremap [unite]o :Unite -no-split -start-insert -auto-preview outline<cr>
+nnoremap [unite]l :Unite -no-split -start-insert line<cr>
+nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
+nnoremap [unite]b :Unite -no-split -quick-match buffer<cr>
+
 
 " VimFiler
 let g:vimfiler_as_default_explorer = 1

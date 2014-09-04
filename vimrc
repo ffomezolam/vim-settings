@@ -153,10 +153,10 @@ map j gj
 map k gk
 
 " multiple windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
 
 " buffers
 " switch to directory of current buffer

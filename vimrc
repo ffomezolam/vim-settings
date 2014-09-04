@@ -276,5 +276,5 @@ nnoremap [unite]b :Unite -no-split -quick-match buffer<cr>
 " VimFiler
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
-nnoremap <leader>n :VimFilerExplorer<cr>
+nnoremap <leader>n :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<cr>
 

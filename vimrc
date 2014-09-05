@@ -184,6 +184,12 @@ noremap <leader>gr :Gremove<cr>
 noremap <leader>gs :Gstatus<cr>
 noremap <leader>ga :Gwrite<cr>
 
+" Tabularize
+nmap <leader>a= :Tabularize /=<cr>
+nmap <leader>a: :Tabularize /:<cr>
+nmap <leader>a:: :Tabularize /:\zs<cr>
+nmap <leader>a, :Tabularize /,<cr>
+
 " Syntastic
 set statusline+=%<%f\ %h%m%r
 set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
@@ -257,9 +263,7 @@ function! s:unite_settings()
     nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
 
-function! s:unite_settings()
-    nmap <buffer> <ESC> <Plug>(unite_exit)
-endfunction
+autocmd FileType unite call s:unite_settings()
 
 nnoremap [unite] <Nop>
 nmap <space> [unite]
@@ -271,6 +275,8 @@ nnoremap [unite]o :Unite -no-split -start-insert -auto-preview outline<cr>
 nnoremap [unite]l :Unite -no-split -start-insert line<cr>
 nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
 nnoremap [unite]b :Unite -no-split -quick-match buffer<cr>
+nnoremap <leader>b :Unite -no-split buffer<cr>
+nnoremap [unite]c :Unite colorscheme<cr>
 
 
 " VimFiler
@@ -278,3 +284,13 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 nnoremap <leader>n :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<cr>
 
+" Fun Functions!
+
+" toggle background color
+function! ToggleBackgroundColor()
+    if &background ==? 'dark'
+        let &background = 'light'
+    else
+        let &background = 'dark'
+    endif
+endfunction

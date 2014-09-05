@@ -17,6 +17,8 @@ NeoBundle 'xsbeats/vim-blade'
 NeoBundle 'vim-scripts/c.vim'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'othree/html5-syntax.vim'
+NeoBundle 'ffomezolam/vim-less-cmd'
+NeoBundle 'plasticboy/vim-markdown'
 
 " interface
 NeoBundle 'Shougo/neocomplete'
@@ -34,6 +36,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'mhinz/vim-startify'
 
 " utilities
 NeoBundle 'tpope/vim-abolish'
@@ -43,12 +47,16 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'shemerey/vim-project'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/IndexedSearch'
-NeoBundle 'ffomezolam/vim-less-cmd'
-NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'marijnh/tern_for_vim', {
+    \ 'build': {
+    \   'mac': 'npm install',
+    \   'unix': 'npm install',
+    \ },
+\ }
 
 call neobundle#end()
 

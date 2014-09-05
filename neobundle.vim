@@ -38,6 +38,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'mhinz/vim-startify'
+NeoBundle 'flazz/vim-colorschemes'
 
 " utilities
 NeoBundle 'tpope/vim-abolish'

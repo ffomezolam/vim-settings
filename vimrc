@@ -274,7 +274,7 @@ nnoremap [unite]g :Unite -no-split grep:.<cr>
 nnoremap [unite]o :Unite -no-split -start-insert -auto-preview outline<cr>
 nnoremap [unite]l :Unite -no-split -start-insert line<cr>
 nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
-nnoremap [unite]b :Unite -no-split -quick-match buffer<cr>
+nnoremap [unite]b :Unite -no-split -quick-match -no-cursor-line buffer<cr>
 nnoremap <leader>b :Unite -no-split buffer<cr>
 nnoremap [unite]c :Unite colorscheme<cr>
 

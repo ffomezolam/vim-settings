@@ -282,7 +282,7 @@ nnoremap [unite]c :Unite colorscheme<cr>
 " VimFiler
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
-nnoremap <leader>n :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<cr>
+noremap <leader>n :VimFilerExplorer<cr>
 
 " Fun Functions!
 

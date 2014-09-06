@@ -197,7 +197,7 @@ set statusline+=%=%-14.(%l,%c%V%)\ %P
 let g:syntastic_python_checker_args = '-E'
 
 " TaskList
-map <leader>v <Plug>TaskList
+map <leader>k <Plug>TaskList
 
 " NeoComplete
 let g:acp_enableAtStartup = 0
@@ -283,6 +283,13 @@ nnoremap [unite]c :Unite colorscheme<cr>
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 noremap <leader>n :VimFilerExplorer<cr>
+
+" VimShell
+let g:vimshell_prompt = $USER . "> "
+"let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":^")'
+let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":^") . ">", "\\[]()?! ") . " "'
+let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
+nnoremap <leader>v :VimShellPop<cr>
 
 " Fun Functions!
 

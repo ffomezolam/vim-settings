@@ -52,6 +52,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'marijnh/tern_for_vim', {
     \ 'build': {
     \   'mac': 'npm install',

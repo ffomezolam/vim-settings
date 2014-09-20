@@ -170,7 +170,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 let g:less_compress = 1
 
 " Gundo
-nnoremap <leader>U <ESC>:GundoToggle<cr>
+nnoremap <leader>u <ESC>:GundoToggle<cr>
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 30
 

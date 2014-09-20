@@ -19,6 +19,9 @@ NeoBundle 'tpope/vim-git'
 NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'ffomezolam/vim-less-cmd'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-easytags'
 
 " interface
 NeoBundle 'Shougo/neocomplete'
@@ -59,6 +62,7 @@ NeoBundle 'marijnh/tern_for_vim', {
     \   'unix': 'npm install',
     \ },
 \ }
+
 
 call neobundle#end()
 

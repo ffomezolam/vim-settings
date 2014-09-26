@@ -39,6 +39,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 
 " utilities
 NeoBundle 'tpope/vim-abolish'

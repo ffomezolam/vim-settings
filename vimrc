@@ -289,6 +289,10 @@ nnoremap <leader>m :VimFilerExplorer<cr>
 
 let g:NumberToggleTrigger="<C-u>"
 
+" delimitMate
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+
 " Fun Functions!
 
 " toggle background color

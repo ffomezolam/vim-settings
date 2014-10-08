@@ -59,6 +59,7 @@ NeoBundle 'marijnh/tern_for_vim', {
     \   'unix': 'npm install',
     \ },
 \ }
+NeoBundle 'Raimondi/delimitMate'
 
 call neobundle#end()
 

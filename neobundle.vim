@@ -19,6 +19,9 @@ NeoBundle 'tpope/vim-git'
 NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'ffomezolam/vim-less-cmd'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-easytags'
 
 " interface
 NeoBundle 'Shougo/neocomplete'
@@ -53,6 +56,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'marijnh/tern_for_vim', {
     \ 'build': {
     \   'mac': 'npm install',
@@ -60,6 +64,7 @@ NeoBundle 'marijnh/tern_for_vim', {
     \ },
 \ }
 NeoBundle 'Raimondi/delimitMate'
+
 
 call neobundle#end()
 

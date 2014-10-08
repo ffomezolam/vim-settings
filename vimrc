@@ -73,7 +73,7 @@ set nowritebackup
 " color settings
 "
 set background=dark
-colorscheme moria
+colorscheme grb256
 
 "
 " indent settings
@@ -170,7 +170,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 let g:less_compress = 1
 
 " Gundo
-nnoremap <leader>U <ESC>:GundoToggle<cr>
+nnoremap <leader>u <ESC>:GundoToggle<cr>
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 30
 
@@ -197,7 +197,7 @@ set statusline+=%=%-14.(%l,%c%V%)\ %P
 let g:syntastic_python_checker_args = '-E'
 
 " TaskList
-map <leader>v <Plug>TaskList
+map <leader>k <Plug>TaskList
 
 " NeoComplete
 let g:acp_enableAtStartup = 0
@@ -274,7 +274,7 @@ nnoremap [unite]g :Unite -no-split grep:.<cr>
 nnoremap [unite]o :Unite -no-split -start-insert -auto-preview outline<cr>
 nnoremap [unite]l :Unite -no-split -start-insert line<cr>
 nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
-nnoremap [unite]b :Unite -no-split -quick-match buffer<cr>
+nnoremap [unite]b :Unite -no-split -quick-match -no-cursor-line buffer<cr>
 nnoremap <leader>b :Unite -no-split buffer<cr>
 nnoremap [unite]c :Unite colorscheme<cr>
 
@@ -292,6 +292,13 @@ let g:NumberToggleTrigger="<C-u>"
 " delimitMate
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
+
+" VimShell
+let g:vimshell_prompt = $USER . "> "
+"let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":^")'
+let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":^") . ">", "\\[]()?! ") . " "'
+let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
+nnoremap <leader>v :VimShellPop<cr>
 
 " Fun Functions!
 

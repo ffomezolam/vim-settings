@@ -74,6 +74,7 @@ set nowritebackup
 "
 set background=dark
 colorscheme advantage
+" colorscheme favorites: advantage desert golden
 
 "
 " indent settings

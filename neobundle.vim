@@ -43,6 +43,7 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 " utilities
 NeoBundle 'tpope/vim-abolish'

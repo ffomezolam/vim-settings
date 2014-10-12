@@ -73,7 +73,7 @@ set nowritebackup
 " color settings
 "
 set background=dark
-colorscheme grb256
+colorscheme advantage
 
 "
 " indent settings

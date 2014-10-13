@@ -1,16 +1,23 @@
+" vim:fdm=marker
+
 source ~/.config/vim/neobundle.vim
 
+
+"           _   _   _                 
+"  ___  ___| |_| |_(_)_ __   __ _ ___ 
+" / __|/ _ \ __| __| | '_ \ / _` / __|
+" \__ \  __/ |_| |_| | | | | (_| \__ \
+" |___/\___|\__|\__|_|_| |_|\__, |___/
+"                           |___/     
+" settings {{{
+
+" filetypes {{{
 filetype on
 filetype plugin on
 filetype indent on
-
-set rtp+=~/.config/vim/vim/bundle/powerline/powerline/bindings/vim
-
-"
-" general config
-"
 syntax on
-
+" }}}
+" general {{{
 set autoread
 set backspace=indent,eol,start
 set encoding=utf-8
@@ -29,15 +36,11 @@ set title
 set ttyfast
 set visualbell
 set tags=./tags,tags;$HOME
-
-"
-" map settings
-"
+" }}}
+" mappings {{{
 let mapleader=","
-
-"
-" buffer settings
-"
+" }}}
+" buffers {{{
 " return to last edit position when opening files
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -45,10 +48,8 @@ autocmd BufReadPost *
     \ endif
 " remember buffer info on close
 set viminfo^=%
-
-"
-" search settings
-"
+" }}}
+" searching {{{
 set ignorecase
 set smartcase
 set incsearch
@@ -56,29 +57,23 @@ set hlsearch
 set magic
 set showmatch
 set matchtime=3
-
+" }}}
+" menus {{{
 set wildmenu
 set wildmode=list:longest
-
 set completeopt=longest,menuone
-
-"
-" disable backup files
-"
+" }}}
+" backups {{{
 set noswapfile
 set nobackup
 set nowritebackup
-
-"
-" color settings
-"
+" }}}
+" color {{{
 set background=dark
 colorscheme advantage
 " colorscheme favorites: advantage desert golden
-
-"
-" indent settings
-"
+" }}}
+" indenting {{{
 set expandtab
 set smarttab
 set shiftwidth=4
@@ -86,17 +81,14 @@ set tabstop=4
 set softtabstop=4
 set autoindent
 set smartindent
-
+" }}}
+" blank spaces {{{
 set list listchars=tab:\»\-,trail:·
-
-"
-" scroll settings
-"
+" }}}
+" scrolling {{{
 set scrolloff=8
-
-"
-" highlighting and word wrap settings
-"
+" }}}
+" word wrap {{{
 set wrap
 set textwidth=79
 set formatoptions=qrn1
@@ -104,103 +96,40 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=red
 highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
 highlight CursorColumn cterm=NONE ctermbg=red
-
-"
-" fold settings
-"
+" }}}
+" folding {{{
 set foldmethod=indent
+" }}}
 
-"
-" other settings
-"
-let g:tex_flavor = 'latex'
-let python_highlight_all = 1
+" End Settings }}}
 
-"
-" Mappings
-"
+"        _             _           
+"  _ __ | |_   _  __ _(_)_ __  ___ 
+" | '_ \| | | | |/ _` | | '_ \/ __|
+" | |_) | | |_| | (_| | | | | \__ \
+" | .__/|_|\__,_|\__, |_|_| |_|___/
+" |_|            |___/             
+" Plugins {{{
 
-" clear search buffer
-nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
-
-" toggle cursor line
-nnoremap <leader>c :set cursorline!<bar>echo "Toggled cursorline"<cr>
-
-" toggle tab highlights
-nnoremap <leader>h :set list listchars=tab:\ \ ,trail:·<cr>
-nnoremap <leader>H :set list listchars=tab:\»\-,trail:·<cr>
-
-" disable arrow keys
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-
-" remap arrow keys to window resize
-noremap <up> <C-w>+
-noremap <down> <C-w>-
-noremap <left> 3<C-w>>
-noremap <right> 3<C-w><
-
-" magic regex
-nnoremap / /\v
-nnoremap ? ?\v
-
-" fast save
-nmap <leader>w :w!<cr>
-
-" treat long lines as break lines
-map j gj
-map k gk
-
-" multiple windows
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-l> <C-w>l
-
-" buffers
-" switch to directory of current buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-"
-" Plugins
-"
+" delimitMate {{{
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+" }}}
 
 " Less-Cmd
 let g:less_compress = 1
 
-" Gundo
-nnoremap <leader>u <ESC>:GundoToggle<cr>
+let g:tex_flavor = 'latex'
+let python_highlight_all = 1
+
+" Gundo {{{
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 30
-
-" Fugitive
-noremap <leader>g :Git
-noremap <leader>gb :Gblame<cr>
-noremap <leader>gc :Gcommit<cr>
-noremap <leader>gd :Gdiff<cr>
-noremap <leader>gp :Git push<cr>
-noremap <leader>gr :Gremove<cr>
-noremap <leader>gs :Gstatus<cr>
-noremap <leader>ga :Gwrite<cr>
-
-" Tabularize
-nmap <leader>a= :Tabularize /=<cr>
-nmap <leader>a: :Tabularize /:<cr>
-nmap <leader>a:: :Tabularize /:\zs<cr>
-nmap <leader>a, :Tabularize /,<cr>
-
-" Syntastic
-set statusline+=%<%f\ %h%m%r
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
-set statusline+=%=%-14.(%l,%c%V%)\ %P
-let g:syntastic_python_checker_args = '-E'
-
-" TaskList
-map <leader>k <Plug>TaskList
-
-" NeoComplete and NeoSnippet
+" }}}
+" incsearch {{{
+let g:incsearch#auto_nohlsearch = 1
+" }}}
+" NeoComplete and NeoSnippet {{{
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -242,8 +171,14 @@ if has('conceal')
 endif
 
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-" Unite
+" }}}
+" Syntastic {{{
+"set statusline+=%<%f\ %h%m%r
+"set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+"set statusline+=%=%-14.(%l,%c%V%)\ %P
+let g:syntastic_python_checker_args = '-E'
+" }}}
+" Unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
@@ -256,7 +191,59 @@ function! s:unite_settings()
 endfunction
 
 autocmd FileType unite call s:unite_settings()
+" }}}
+" VimFiler {{{
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+" }}}
+" VimShell {{{
+let g:vimshell_prompt = $USER . "> "
+"let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":^")'
+let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":^") . ">", "\\[]()?! ") . " "'
+let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
+nnoremap <leader>v :VimShellPop<cr>
+" }}}
 
+" End Plugins }}}
+
+"
+"  _ __ ___   __ _ _ __  _ __ (_)_ __   __ _ ___ 
+" | '_ ` _ \ / _` | '_ \| '_ \| | '_ \ / _` / __|
+" | | | | | | (_| | |_) | |_) | | | | | (_| \__ \
+" |_| |_| |_|\__,_| .__/| .__/|_|_| |_|\__, |___/
+"                 |_|   |_|            |___/     
+"
+" Mappings {{{
+
+" Up {{{
+noremap <up> <C-w>+
+" }}}
+" Down {{{
+noremap <down> <C-w>-
+" }}}
+" Left {{{
+noremap <left> 3<C-w>>
+" }}}
+" Right {{{
+noremap <right> 3 <C-w><
+" }}}
+" . {{{
+""" clear search buffer
+nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
+" }}}
+" ; {{{
+" }}}
+" / (Search and Replace) {{{
+""" PLUGIN incsearch.vim
+map / <Plug>(incsearch-forward)\v
+""" magic replace
+nnoremap <leader>/s :s/\v
+" }}}
+" ? (Search) {{{
+""" PLUGIN incsearch.vim
+map ? <Plug>(incsearch-backward)\v
+" }}}
+" space (Unite) {{{
 nnoremap [unite] <Nop>
 nmap <space> [unite]
 
@@ -267,32 +254,141 @@ nnoremap [unite]o :Unite -no-split -start-insert -auto-preview outline<cr>
 nnoremap [unite]l :Unite -no-split -start-insert line<cr>
 nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
 nnoremap [unite]b :Unite -no-split -quick-match -no-cursor-line buffer<cr>
-nnoremap <leader>b :Unite -no-split buffer<cr>
 nnoremap [unite]c :Unite colorscheme<cr>
+" }}}
+" a {{{
+" Tabularize
+nmap <leader>a= :Tabularize /=<cr>
+nmap <leader>a: :Tabularize /:<cr>
+nmap <leader>a:: :Tabularize /:\zs<cr>
+nmap <leader>a, :Tabularize /,<cr>
+" }}}
+" b {{{
+""" Unite buffer
+nnoremap <leader>b :Unite -no-split buffer<cr>
+" }}}
+" c {{{
+""" PLUGIN NERDCommenter
+""" switch to directory of current buffer
+noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+" }}}
+" d {{{
+" }}}
+" e {{{
+""" edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" }}}
+" f {{{
+" }}}
+" g (Fugitive) {{{
+""" Fugitive
+noremap <leader>g :Git
+noremap <leader>gb :Gblame<cr>
+noremap <leader>gc :Gcommit<cr>
+noremap <leader>gd :Gdiff<cr>
+noremap <leader>gp :Git push<cr>
+noremap <leader>gr :Gremove<cr>
+noremap <leader>gs :Gstatus<cr>
+noremap <leader>ga :Gwrite<cr>
+" }}}
+" h {{{
+""" select window left
+map <C-h> <C-w>h
+" }}}
+" i {{{
+" }}}
+" j {{{
+""" select window above
+map <C-j> <C-w>j
+""" ignore line wrapping
+map j gj
+" }}}
+" k {{{
+""" select window below
+map <C-k> <C-w>k
+""" ignore line wrapping
+map k gk
+""" PLUGIN TaskList
+map <leader>k <Plug>TaskList
+" }}}
+" l {{{
+""" select window right
+map <C-l> <C-w>l
+""" toggle cursor line
+nnoremap <silent> <leader>l :set cursorline!<cr>jk
+" }}}
+" m {{{
+" }}}
+" n {{{
+""" VimFiler
+nnoremap <leader>n :VimFilerExplorer<cr>
+""" toggle line number style (numbertoggle plugin)
+let g:NumberToggleTrigger="<C-n>"
+""" PLUGIN incsearch.vim
+map n <Plug>(incsearch-nohl-n)
+map N <Plug>(incsearch-nohl-N)
+map * <Plug>(incsearch-nohl-*)
+map # <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+" }}}
+" o {{{
+" }}}
+" p {{{
+" }}}
+" q {{{
+" }}}
+" r {{{
+""" redraw buffer
+noremap <silent> <C-r> :redraw!<cr>
+" }}}
+" s {{{
+""" source vimrc
+nnoremap <leader>sv :source $MYVIRMC<cr>
+" }}}
+" t {{{
+" }}}
+" u {{{
+" Gundo
+nnoremap <leader>u <esc>:GundoToggle<cr>
+" make word uppercase
+inoremap <C-U> <esc>mZviwU`Zli
+nnoremap <C-U> mZviwU`Z
+" make word lowercase
+inoremap <C-u> <esc>mZviwu`Zli
+nnoremap <C-u> mZviwu`Z
+" }}}
+" v {{{
+" }}}
+" w {{{
+""" fast save
+nmap <leader>w :w!<cr>:redraw!<cr>
+" }}}
+" x {{{
+" }}}
+" y {{{
+""" PLUGIN emmet
+" }}}
+" z {{{
+" }}}
 
+" End Mappings }}}
 
-" VimFiler
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default = 0
-nnoremap <leader>n :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<cr>
-nnoremap <leader>m :VimFilerExplorer<cr>
+"        _     _                    _       _   _                 
+"   __ _| |__ | |__  _ __ _____   _(_) __ _| |_(_) ___  _ __  ___ 
+"  / _` | '_ \| '_ \| '__/ _ \ \ / / |/ _` | __| |/ _ \| '_ \/ __|
+" | (_| | |_) | |_) | | |  __/\ V /| | (_| | |_| | (_) | | | \__ \
+"  \__,_|_.__/|_.__/|_|  \___| \_/ |_|\__,_|\__|_|\___/|_| |_|___/
+" Abbreviations {{{
+iabbrev @@ ffomezolam@gmail.com
+" }}}
 
-" numbertoggle
-
-let g:NumberToggleTrigger="<C-u>"
-
-" delimitMate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
-
-" VimShell
-let g:vimshell_prompt = $USER . "> "
-"let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":^")'
-let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":^") . ">", "\\[]()?! ") . " "'
-let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
-nnoremap <leader>v :VimShellPop<cr>
-
-" Fun Functions!
+"   __                  _   _                 
+"  / _|_   _ _ __   ___| |_(_) ___  _ __  ___ 
+" | |_| | | | '_ \ / __| __| |/ _ \| '_ \/ __|
+" |  _| |_| | | | | (__| |_| | (_) | | | \__ \
+" |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|___/
+" Functions {{{
 
 " toggle background color
 function! ToggleBackgroundColor()
@@ -302,3 +398,5 @@ function! ToggleBackgroundColor()
         let &background = 'dark'
     endif
 endfunction
+
+" End Functions }}}

@@ -122,6 +122,8 @@ let g:less_compress = 1
 let g:tex_flavor = 'latex'
 let python_highlight_all = 1
 
+au FileType javascript call JavaScriptFold()
+
 " Gundo {{{
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 30

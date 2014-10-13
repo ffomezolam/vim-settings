@@ -9,7 +9,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " runtime / syntax
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'pangloss/vim-javascript'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload': {'filetypes': ['javascript']}}
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'tpope/vim-haml'

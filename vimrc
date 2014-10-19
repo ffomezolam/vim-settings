@@ -3,21 +3,18 @@
 source ~/.config/vim/neobundle.vim
 
 
-"           _   _   _                 
-"  ___  ___| |_| |_(_)_ __   __ _ ___ 
+"           _   _   _
+"  ___  ___| |_| |_(_)_ __   __ _ ___
 " / __|/ _ \ __| __| | '_ \ / _` / __|
 " \__ \  __/ |_| |_| | | | | (_| \__ \
 " |___/\___|\__|\__|_|_| |_|\__, |___/
-"                           |___/     
+"                           |___/
 " settings {{{
 
-" filetypes {{{
-filetype on
-filetype plugin on
-filetype indent on
-syntax on
-" }}}
+autocmd!
+
 " general {{{
+set t_Co=256
 set autoread
 set backspace=indent,eol,start
 set encoding=utf-8
@@ -36,12 +33,20 @@ set ttyfast
 set visualbell
 set tags=./tags,tags;$HOME
 " }}}
+" filetypes {{{
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
+" }}}
 " mappings {{{
 let mapleader=","
 " }}}
 " buffers {{{
 " hide buffer instead of delete when abandoned
 set hidden
+" remove trailing whitespace on write
+autocmd BufReadPost * :silent! %s/\s\+$//
 " return to last edit position when opening files
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -71,8 +76,18 @@ set nowritebackup
 " }}}
 " color {{{
 set background=dark
-colorscheme advantage
-" colorscheme favorites: advantage desert golden
+colorscheme desert256
+highlight Pmenu ctermbg=238 ctermfg=255
+
+highlight SignColumn ctermbg=0
+highlight GitGutterAdd ctermbg=0
+highlight GitGutterChange ctermbg=0
+highlight GitGutterDelete ctermbg=0
+highlight GitGutterChangeDelete ctermbg=0
+
+highlight ColorColumn ctermbg=red
+highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
+highlight CursorColumn cterm=NONE ctermbg=125
 " }}}
 " indenting {{{
 set expandtab
@@ -94,9 +109,6 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=80
-highlight ColorColumn ctermbg=red
-highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
-highlight CursorColumn cterm=NONE ctermbg=red
 " }}}
 " folding {{{
 set foldmethod=indent
@@ -104,12 +116,12 @@ set foldmethod=indent
 
 " End Settings }}}
 
-"        _             _           
-"  _ __ | |_   _  __ _(_)_ __  ___ 
+"        _             _
+"  _ __ | |_   _  __ _(_)_ __  ___
 " | '_ \| | | | |/ _` | | '_ \/ __|
 " | |_) | | |_| | (_| | | | | \__ \
 " | .__/|_|\__,_|\__, |_|_| |_|___/
-" |_|            |___/             
+" |_|            |___/
 " Plugins {{{
 
 " delimitMate {{{
@@ -128,6 +140,7 @@ au FileType javascript call JavaScriptFold()
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts = 1
 " }}}
 " Emmet {{{
 """ enable just for html and css
@@ -219,11 +232,11 @@ nnoremap <leader>v :VimShellPop<cr>
 " End Plugins }}}
 
 "
-"  _ __ ___   __ _ _ __  _ __ (_)_ __   __ _ ___ 
+"  _ __ ___   __ _ _ __  _ __ (_)_ __   __ _ ___
 " | '_ ` _ \ / _` | '_ \| '_ \| | '_ \ / _` / __|
 " | | | | | | (_| | |_) | |_) | | | | | (_| \__ \
 " |_| |_| |_|\__,_| .__/| .__/|_|_| |_|\__, |___/
-"                 |_|   |_|            |___/     
+"                 |_|   |_|            |___/
 "
 " Mappings {{{
 
@@ -240,16 +253,22 @@ noremap <left> 3<C-w>>
 noremap <right> 3 <C-w><
 " }}}
 " [ {{{
-" Previous buffer
-nnoremap <C-[> :bprevious<cr>
 " }}}
 " ] {{{
-" Next buffer
-nnoremap <C-]> :bnext<cr>
 " }}}
 " . {{{
 """ clear search buffer
 nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
+" }}}
+" , {{{
+" }}}
+" < {{{
+""" Previous buffer
+nnoremap <silent> < :bprevious<cr>
+" }}}
+" > {{{
+""" Next buffer
+nnoremap <silent> > :bnext<cr>
 " }}}
 " ; {{{
 " }}}
@@ -408,8 +427,8 @@ nnoremap y :redo<cr>
 
 " End Mappings }}}
 
-"        _     _                    _       _   _                 
-"   __ _| |__ | |__  _ __ _____   _(_) __ _| |_(_) ___  _ __  ___ 
+"        _     _                    _       _   _
+"   __ _| |__ | |__  _ __ _____   _(_) __ _| |_(_) ___  _ __  ___
 "  / _` | '_ \| '_ \| '__/ _ \ \ / / |/ _` | __| |/ _ \| '_ \/ __|
 " | (_| | |_) | |_) | | |  __/\ V /| | (_| | |_| | (_) | | | \__ \
 "  \__,_|_.__/|_.__/|_|  \___| \_/ |_|\__,_|\__|_|\___/|_| |_|___/
@@ -417,8 +436,8 @@ nnoremap y :redo<cr>
 iabbrev @@ ffomezolam@gmail.com
 " }}}
 
-"   __                  _   _                 
-"  / _|_   _ _ __   ___| |_(_) ___  _ __  ___ 
+"   __                  _   _
+"  / _|_   _ _ __   ___| |_(_) ___  _ __  ___
 " | |_| | | | '_ \ / __| __| |/ _ \| '_ \/ __|
 " |  _| |_| | | | | (__| |_| | (_) | | | \__ \
 " |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|___/

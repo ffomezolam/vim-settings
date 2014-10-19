@@ -11,8 +11,6 @@ source ~/.config/vim/neobundle.vim
 "                           |___/
 " settings {{{
 
-autocmd!
-
 " general {{{
 set t_Co=256
 set autoread
@@ -392,6 +390,8 @@ noremap <silent> <C-r> :redraw!<cr>
 " s {{{
 """ source vimrc
 nnoremap <leader>sv :source $MYVIRMC<cr>
+""" Unite tasklist
+nnoremap [unite]s :Unite -no-split tasklist<cr>
 " }}}
 " t {{{
 """ Unite tags

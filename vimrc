@@ -22,7 +22,6 @@ set autoread
 set backspace=indent,eol,start
 set encoding=utf-8
 set guicursor=a:blinkon0
-set hidden
 set history=1000
 set laststatus=2
 set lazyredraw
@@ -41,6 +40,8 @@ set tags=./tags,tags;$HOME
 let mapleader=","
 " }}}
 " buffers {{{
+" hide buffer instead of delete when abandoned
+set hidden
 " return to last edit position when opening files
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -124,6 +125,15 @@ let python_highlight_all = 1
 
 au FileType javascript call JavaScriptFold()
 
+" Airline {{{
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+" }}}
+" Emmet {{{
+""" enable just for html and css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+" }}}
 " Gundo {{{
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 30
@@ -229,6 +239,14 @@ noremap <left> 3<C-w>>
 " Right {{{
 noremap <right> 3 <C-w><
 " }}}
+" [ {{{
+" Previous buffer
+nnoremap <C-[> :bprevious<cr>
+" }}}
+" ] {{{
+" Next buffer
+nnoremap <C-]> :bnext<cr>
+" }}}
 " . {{{
 """ clear search buffer
 nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
@@ -249,14 +267,8 @@ map ? <Plug>(incsearch-backward)\v
 nnoremap [unite] <Nop>
 nmap <space> [unite]
 
+""" Unite general search
 nnoremap [unite]<space> :Unite -no-split -start-insert source<cr>
-nnoremap [unite]f :Unite -no-split -start-insert file_rec/async<cr>
-nnoremap [unite]g :Unite -no-split grep:.<cr>
-nnoremap [unite]o :Unite -no-split -start-insert -auto-preview outline<cr>
-nnoremap [unite]l :Unite -no-split -start-insert line<cr>
-nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
-nnoremap [unite]b :Unite -no-split -quick-match -no-cursor-line buffer<cr>
-nnoremap [unite]c :Unite colorscheme<cr>
 " }}}
 " a {{{
 " Tabularize
@@ -266,13 +278,19 @@ nmap <leader>a:: :Tabularize /:\zs<cr>
 nmap <leader>a, :Tabularize /,<cr>
 " }}}
 " b {{{
-""" Unite buffer
-nnoremap <leader>b :Unite -no-split buffer<cr>
+""" Unite buffer quick match
+nnoremap [unite]b :Unite -no-split -quick-match -no-cursor-line buffer<cr>
+""" Close buffer and select previous one
+nnoremap <leader>bq :bp <BAR> bd #<cr>
+""" List buffers
+nnoremap <leader>bl :ls<cr>
 " }}}
 " c {{{
 """ PLUGIN NERDCommenter
 """ switch to directory of current buffer
 noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+""" Unite colorscheme
+nnoremap [unite]c :Unite colorscheme<cr>
 " }}}
 " d {{{
 " }}}
@@ -281,8 +299,10 @@ noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " }}}
 " f {{{
+""" Unite file search
+nnoremap [unite]f :Unite -no-split -start-insert file_rec/async<cr>
 " }}}
-" g (Fugitive) {{{
+" g {{{
 """ Fugitive
 noremap <leader>g :Git
 noremap <leader>gb :Gblame<cr>
@@ -292,6 +312,8 @@ noremap <leader>gp :Git push<cr>
 noremap <leader>gr :Gremove<cr>
 noremap <leader>gs :Gstatus<cr>
 noremap <leader>ga :Gwrite<cr>
+""" Unite grep
+nnoremap [unite]g :Unite -no-split grep:.<cr>
 " }}}
 " h {{{
 """ select window left
@@ -300,13 +322,13 @@ map <C-h> <C-w>h
 " i {{{
 " }}}
 " j {{{
-""" select window above
+""" select window below
 map <C-j> <C-w>j
 """ ignore line wrapping
 map j gj
 " }}}
 " k {{{
-""" select window below
+""" select window above
 map <C-k> <C-w>k
 """ ignore line wrapping
 map k gk
@@ -318,6 +340,8 @@ map <leader>k <Plug>TaskList
 map <C-l> <C-w>l
 """ toggle cursor line
 nnoremap <silent> <leader>l :set cursorline!<cr>jk
+""" Unite line search
+nnoremap [unite]l :Unite -no-split -start-insert line<cr>
 " }}}
 " m {{{
 " }}}
@@ -335,6 +359,8 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 " }}}
 " o {{{
+""" Unite doc outline
+nnoremap [unite]o :Unite -no-split -start-insert -auto-preview outline<cr>
 " }}}
 " p {{{
 " }}}
@@ -349,6 +375,8 @@ noremap <silent> <C-r> :redraw!<cr>
 nnoremap <leader>sv :source $MYVIRMC<cr>
 " }}}
 " t {{{
+""" Unite tags
+nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
 " }}}
 " u {{{
 " Gundo
@@ -359,6 +387,8 @@ nnoremap <C-U> mZviwU`Z
 " make word lowercase
 inoremap <C-u> <esc>mZviwu`Zli
 nnoremap <C-u> mZviwu`Z
+" Unite buffer
+nnoremap [unite]u :Unite -no-split buffer<cr>
 " }}}
 " v {{{
 " }}}
@@ -370,6 +400,8 @@ nmap <leader>w :w!<cr>:redraw!<cr>
 " }}}
 " y {{{
 """ PLUGIN emmet
+""" redo
+nnoremap y :redo<cr>
 " }}}
 " z {{{
 " }}}

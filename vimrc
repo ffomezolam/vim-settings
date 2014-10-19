@@ -78,7 +78,6 @@ colorscheme desert256
 highlight Pmenu ctermbg=238 ctermfg=255
 
 highlight SignColumn ctermbg=0
-highlight GitGutterAddDefault ctermfg=2 ctermbg=0
 
 highlight ColorColumn ctermbg=grey
 highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
@@ -232,7 +231,6 @@ nnoremap <leader>v :VimShellPop<cr>
 " | | | | | | (_| | |_) | |_) | | | | | (_| \__ \
 " |_| |_| |_|\__,_| .__/| .__/|_|_| |_|\__, |___/
 "                 |_|   |_|            |___/
-"
 " Mappings {{{
 
 " Up {{{
@@ -258,12 +256,8 @@ nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
 " , {{{
 " }}}
 " < {{{
-""" Previous buffer
-nnoremap <silent> < :bprevious<cr>
 " }}}
 " > {{{
-""" Next buffer
-nnoremap <silent> > :bnext<cr>
 " }}}
 " ; {{{
 " }}}
@@ -298,6 +292,10 @@ nnoremap [unite]b :Unite -no-split -quick-match -no-cursor-line buffer<cr>
 nnoremap <leader>bq :bp <BAR> bd #<cr>
 """ List buffers
 nnoremap <leader>bl :ls<cr>
+""" Previous buffer
+nnoremap <silent> <C-B> :bprevious<cr>
+""" Next buffer
+nnoremap <silent> <C-b> :bnext<cr>
 " }}}
 " c {{{
 """ PLUGIN NERDCommenter
@@ -363,7 +361,7 @@ nnoremap [unite]l :Unite -no-split -start-insert line<cr>
 """ VimFiler
 nnoremap <leader>n :VimFilerExplorer<cr>
 """ toggle line number style (numbertoggle plugin)
-let g:NumberToggleTrigger="<C-n>"
+let g:NumberToggleTrigger="<C-u>"
 """ PLUGIN incsearch.vim
 map n <Plug>(incsearch-nohl-n)
 map N <Plug>(incsearch-nohl-N)

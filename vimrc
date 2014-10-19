@@ -78,14 +78,11 @@ colorscheme desert256
 highlight Pmenu ctermbg=238 ctermfg=255
 
 highlight SignColumn ctermbg=0
-highlight GitGutterAdd ctermbg=0
-highlight GitGutterChange ctermbg=0
-highlight GitGutterDelete ctermbg=0
-highlight GitGutterChangeDelete ctermbg=0
+highlight GitGutterAddDefault ctermfg=2 ctermbg=0
 
-highlight ColorColumn ctermbg=red
+highlight ColorColumn ctermbg=grey
 highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
-highlight CursorColumn cterm=NONE ctermbg=125
+highlight CursorColumn cterm=NONE ctermbg=grey
 " }}}
 " indenting {{{
 set expandtab

@@ -361,7 +361,7 @@ nnoremap [unite]l :Unite -no-split -start-insert line<cr>
 """ VimFiler
 nnoremap <leader>n :VimFilerExplorer<cr>
 """ toggle line number style (numbertoggle plugin)
-let g:NumberToggleTrigger="<C-u>"
+let g:NumberToggleTrigger="<C-n>"
 """ PLUGIN incsearch.vim
 map n <Plug>(incsearch-nohl-n)
 map N <Plug>(incsearch-nohl-N)

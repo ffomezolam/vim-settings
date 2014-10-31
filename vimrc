@@ -403,6 +403,8 @@ inoremap <C-u> <esc>mZviwu`Zli
 nnoremap <C-u> mZviwu`Z
 " Unite buffer
 nnoremap [unite]u :Unite -no-split buffer<cr>
+""" redo
+nnoremap U :redo<cr>
 " }}}
 " v {{{
 " }}}
@@ -414,8 +416,6 @@ nmap <leader>w :w!<cr>:redraw!<cr>
 " }}}
 " y {{{
 """ PLUGIN emmet
-""" redo
-nnoremap y :redo<cr>
 " }}}
 " z {{{
 " }}}

@@ -293,7 +293,7 @@ nnoremap <leader>bq :bp <BAR> bd #<cr>
 """ List buffers
 nnoremap <leader>bl :ls<cr>
 """ Previous buffer
-nnoremap <silent> <C-B> :bprevious<cr>
+" nnoremap <silent> <C-B> :bprevious<cr>
 """ Next buffer
 nnoremap <silent> <C-b> :bnext<cr>
 " }}}
@@ -332,6 +332,9 @@ nnoremap [unite]g :Unite -no-split grep:.<cr>
 map <C-h> <C-w>h
 " }}}
 " i {{{
+" make word lowercase
+inoremap <C-i> <esc>mZviwu`Zli
+nnoremap <C-i> mZviwu`Z
 " }}}
 " j {{{
 """ select window below
@@ -396,11 +399,8 @@ nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
 " Gundo
 nnoremap <leader>u <esc>:GundoToggle<cr>
 " make word uppercase
-inoremap <C-U> <esc>mZviwU`Zli
-nnoremap <C-U> mZviwU`Z
-" make word lowercase
-inoremap <C-u> <esc>mZviwu`Zli
-nnoremap <C-u> mZviwu`Z
+inoremap <C-u> <esc>mZviwU`Zli
+nnoremap <C-u> mZviwU`Z
 " Unite buffer
 nnoremap [unite]u :Unite -no-split buffer<cr>
 """ redo

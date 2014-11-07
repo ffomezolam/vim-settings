@@ -161,17 +161,17 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-l> neocomplete#complete_common_string()
 
-imap <expr><CR> pumvisible() ? (neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#cancel_popup()) : '<Plug>delimitMateCR'
-imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+inoremap <expr><CR> pumvisible() ? (neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#cancel_popup()) : '<Plug>delimitMateCR'
+inoremap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+snoremap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<tab>"
 inoremap <expr><C-h> neocomplete#smart_close_popup() . "\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup() . "\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+inoremap <C-k> <Plug>(neosnippet_expand_or_jump)
+snoremap <C-k> <Plug>(neosnippet_expand_or_jump)
+xnoremap <C-k> <Plug>(neosnippet_expand_target)
 
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -332,9 +332,6 @@ nnoremap [unite]g :Unite -no-split grep:.<cr>
 map <C-h> <C-w>h
 " }}}
 " i {{{
-" make word lowercase
-inoremap <C-i> <esc>mZviwu`Zli
-nnoremap <C-i> mZviwu`Z
 " }}}
 " j {{{
 """ select window below
@@ -398,9 +395,6 @@ nnoremap [unite]t :Unite -no-split -auto-preview -start-insert tag<cr>
 " u {{{
 " Gundo
 nnoremap <leader>u <esc>:GundoToggle<cr>
-" make word uppercase
-inoremap <C-u> <esc>mZviwU`Zli
-nnoremap <C-u> mZviwU`Z
 " Unite buffer
 nnoremap [unite]u :Unite -no-split buffer<cr>
 """ redo
@@ -411,6 +405,12 @@ nnoremap U :redo<cr>
 " w {{{
 """ fast save
 nmap <leader>w :w!<cr>:redraw!<cr>
+" make word lowercase
+"inoremap <C-i> <esc>mZviwu`Zli
+nnoremap <leader>wl mZviwu`Z
+" make word uppercase
+"inoremap <C-u> <esc>mZviwU`Zli
+nnoremap <leader>wu mZviwU`Z
 " }}}
 " x {{{
 " }}}

@@ -152,19 +152,22 @@ let g:incsearch#auto_nohlsearch = 1
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_select = 0
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-l> neocomplete#complete_common_string()
 
-imap <expr><CR> pumvisible() ? (neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#cancel_popup()) : '<Plug>delimitMateCR'
-imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-imap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<tab>"
+imap <expr><cr> pumvisible() ? neocomplete#close_popup() . "\<Plug>delimitMateCR" : "\<Plug>delimitMateCR"
+
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<c-p>" : "\<TAB>"
+
+"imap <expr><CR> pumvisible() ? (neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#cancel_popup()) : '<Plug>delimitMateCR'
+"imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"imap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<tab>"
+
 inoremap <expr><C-h> neocomplete#smart_close_popup() . "\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup() . "\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
@@ -290,6 +293,8 @@ nmap <leader>a, :Tabularize /,<cr>
 nnoremap [unite]b :Unite -no-split -quick-match -no-cursor-line buffer<cr>
 """ Close buffer and select previous one
 nnoremap <leader>bq :bp <BAR> bd #<cr>
+""" Close all buffers
+nnoremap <leader>ba :1,1000 bd!<cr>
 """ List buffers
 nnoremap <leader>bl :ls<cr>
 """ Previous buffer

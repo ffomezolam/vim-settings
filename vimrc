@@ -71,6 +71,8 @@ set completeopt=longest,menuone
 set noswapfile
 set nobackup
 set nowritebackup
+set undofile
+set undodir=~/tmp/.vim/.undo
 " }}}
 " color {{{
 set background=dark
@@ -105,9 +107,11 @@ set formatoptions=qrn1
 set colorcolumn=80
 " }}}
 " folding {{{
+set foldenable
+set foldcolumn=2
 set foldmethod=indent
 " }}}
-
+"
 " End Settings }}}
 
 "        _             _
@@ -129,7 +133,7 @@ let g:less_compress = 1
 let g:tex_flavor = 'latex'
 let python_highlight_all = 1
 
-au FileType javascript call JavaScriptFold()
+"au FileType javascript call JavaScriptFold()
 
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1
@@ -147,6 +151,7 @@ let g:gundo_width = 30
 " }}}
 " incsearch {{{
 let g:incsearch#auto_nohlsearch = 1
+let g:incsearch#magic = '\v'
 " }}}
 " NeoComplete and NeoSnippet {{{
 let g:acp_enableAtStartup = 0
@@ -219,7 +224,6 @@ let g:vimshell_prompt = $USER . "> "
 "let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":^")'
 let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":^") . ">", "\\[]()?! ") . " "'
 let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
-nnoremap <leader>v :VimShellPop<cr>
 " }}}
 
 " End Plugins }}}
@@ -262,13 +266,13 @@ nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
 " }}}
 " / (Search and Replace) {{{
 """ PLUGIN incsearch.vim
-map / <Plug>(incsearch-forward)\v
+map / <Plug>(incsearch-forward)
 """ magic replace
 nnoremap <leader>/s :s/\v
 " }}}
 " ? (Search) {{{
 """ PLUGIN incsearch.vim
-map ? <Plug>(incsearch-backward)\v
+map ? <Plug>(incsearch-backward)
 " }}}
 " space (Unite) {{{
 nnoremap [unite] <Nop>
@@ -310,6 +314,8 @@ nnoremap [unite]c :Unite colorscheme<cr>
 " e {{{
 """ edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+""" faster viewport scroll
+nnoremap <C-e> 2<C-e>
 " }}}
 " f {{{
 """ Unite file search
@@ -327,12 +333,15 @@ noremap <leader>gs :Gstatus<cr>
 noremap <leader>ga :Gwrite<cr>
 """ Unite grep
 nnoremap [unite]g :Unite -no-split grep:.<cr>
+""" No-move search
+map g/ <Plug>(incsearch-stay)
 " }}}
 " h {{{
 """ select window left
 map <C-h> <C-w>h
 " }}}
 " i {{{
+nnoremap <leader>i :set list!<cr>
 " }}}
 " j {{{
 """ select window below
@@ -402,6 +411,8 @@ nnoremap [unite]u :Unite -no-split buffer<cr>
 nnoremap U :redo<cr>
 " }}}
 " v {{{
+""" vimshell
+nnoremap <leader>v :VimShellPop<cr>
 " }}}
 " w {{{
 """ fast save
@@ -417,6 +428,8 @@ nnoremap <leader>wu mZviwU`Z
 " }}}
 " y {{{
 """ PLUGIN emmet
+""" faster viewport scroll
+nnoremap <C-y> 2<C-y>
 " }}}
 " z {{{
 " }}}

@@ -297,10 +297,6 @@ nnoremap <leader>bq :bp <BAR> bd #<cr>
 nnoremap <leader>ba :1,1000 bd!<cr>
 """ List buffers
 nnoremap <leader>bl :ls<cr>
-""" Previous buffer
-" nnoremap <silent> <C-B> :bprevious<cr>
-""" Next buffer
-nnoremap <silent> <C-b> :bnext<cr>
 " }}}
 " c {{{
 """ PLUGIN NERDCommenter
@@ -338,20 +334,22 @@ map g/ <Plug>(incsearch-stay)
 " }}}
 " h {{{
 """ select window left
-map <C-h> <C-w>h
+nnoremap <leader>h <C-w>h
+""" Previous buffer
+nnoremap <silent> <C-h> :bprevious<cr>
 " }}}
 " i {{{
 nnoremap <leader>i :set list!<cr>
 " }}}
 " j {{{
 """ select window below
-map <C-j> <C-w>j
+nnoremap <leader>j <C-w>j
 """ ignore line wrapping
 map j gj
 " }}}
 " k {{{
 """ select window above
-map <C-k> <C-w>k
+nnoremap <leader>k <C-w>k
 """ ignore line wrapping
 map k gk
 """ PLUGIN TaskList
@@ -359,7 +357,9 @@ map <leader>k <Plug>TaskList
 " }}}
 " l {{{
 """ select window right
-map <C-l> <C-w>l
+nnoremap <leader>l <C-w>l
+""" Next buffer
+nnoremap <silent> <C-l> :bnext<cr>
 """ toggle cursor line
 nnoremap <silent> <leader>l :set cursorline!<cr>jk
 """ Unite line search

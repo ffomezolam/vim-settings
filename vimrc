@@ -243,10 +243,10 @@ noremap <up> <C-w>+
 noremap <down> <C-w>-
 " }}}
 " Left {{{
-noremap <left> 3<C-w>>
+noremap <left> 3<C-w><
 " }}}
 " Right {{{
-noremap <right> 3 <C-w><
+noremap <right> 3<C-w>>
 " }}}
 " [ {{{
 " }}}
@@ -255,8 +255,6 @@ noremap <right> 3 <C-w><
 " . {{{
 """ clear search buffer
 nnoremap <leader>. :let @/=""<bar>echo "Search buffer cleared"<cr>
-" }}}
-" , {{{
 " }}}
 " < {{{
 " }}}
@@ -273,6 +271,10 @@ nnoremap <leader>/s :s/\v
 " ? (Search) {{{
 """ PLUGIN incsearch.vim
 map ? <Plug>(incsearch-backward)
+" }}}
+" - {{{
+""" PLUGIN choosewin
+nmap - <Plug>(choosewin)
 " }}}
 " space (Unite) {{{
 nnoremap [unite] <Nop>
@@ -304,6 +306,8 @@ nnoremap <leader>bl :ls<cr>
 noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 """ Unite colorscheme
 nnoremap [unite]c :Unite colorscheme<cr>
+""" toggle cursor line
+nnoremap <silent> <leader>c :set cursorline!<cr>jk
 " }}}
 " d {{{
 " }}}
@@ -360,8 +364,6 @@ map <leader>k <Plug>TaskList
 nnoremap <leader>l <C-w>l
 """ Next buffer
 nnoremap <silent> <C-l> :bnext<cr>
-""" toggle cursor line
-nnoremap <silent> <leader>l :set cursorline!<cr>jk
 """ Unite line search
 nnoremap [unite]l :Unite -no-split -start-insert line<cr>
 " }}}

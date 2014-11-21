@@ -45,6 +45,7 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 't9md/vim-choosewin'
 
 " utilities
 NeoBundle 'tpope/vim-abolish'

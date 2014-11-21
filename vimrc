@@ -399,6 +399,7 @@ noremap <silent> <C-r> :redraw!<cr>
 nnoremap <leader>sv :source $MYVIRMC<cr>
 """ Unite tasklist
 nnoremap [unite]s :Unite -no-split tasklist<cr>
+nmap <c-s> <Plug>(choosewin-swap)
 " }}}
 " t {{{
 """ Unite tags
@@ -427,6 +428,7 @@ nnoremap <leader>wl mZviwu`Z
 nnoremap <leader>wu mZviwU`Z
 " }}}
 " x {{{
+nmap <c-x> <Plug>(choosewin-swap-again)
 " }}}
 " y {{{
 """ PLUGIN emmet

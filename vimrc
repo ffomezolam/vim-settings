@@ -141,9 +141,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 " }}}
 " Emmet {{{
-""" enable just for html and css
+""" enable just for html, php, blade, and css
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,php,blade EmmetInstall
 " }}}
 " Gundo {{{
 let g:gundo_preview_bottom = 1

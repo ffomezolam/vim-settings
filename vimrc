@@ -81,7 +81,7 @@ highlight Pmenu ctermbg=238 ctermfg=255
 
 highlight SignColumn ctermbg=0
 
-highlight ColorColumn ctermbg=grey
+highlight ColorColumn ctermbg=53
 highlight CursorLine cterm=NONE ctermfg=white ctermbg=green
 highlight CursorColumn cterm=NONE ctermbg=grey
 " }}}

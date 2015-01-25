@@ -21,6 +21,7 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
+" NeoBundle 'mustache/vim-mustache-handlebars'
 
 " interface
 NeoBundle 'Shougo/neocomplete'

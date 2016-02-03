@@ -21,7 +21,7 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
-" NeoBundle 'mustache/vim-mustache-handlebars'
+"NeoBundle 'mustache/vim-mustache-handlebars'
 
 " interface
 NeoBundle 'Shougo/neocomplete'
@@ -47,6 +47,7 @@ NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 't9md/vim-choosewin'
+"NeoBundle 'christoomey/vim-tmux-navigator'
 
 " utilities
 NeoBundle 'tpope/vim-abolish'
@@ -66,6 +67,8 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
     \ 'autoload': { 'filetypes': ['javascript'] },
 \ }
 NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'ldong/vim_loremipsum'
+NeoBundle 'antoyo/vim-licenses'
 
 
 call neobundle#end()

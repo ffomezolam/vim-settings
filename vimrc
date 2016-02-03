@@ -225,6 +225,9 @@ let g:vimshell_prompt = $USER . "> "
 let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":^") . ">", "\\[]()?! ") . " "'
 let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
 " }}}
+" Vim-Tmux-Navigator {{{
+"let g:tmux_navigator_no_mappings = 1
+" }}}
 
 " End Plugins }}}
 

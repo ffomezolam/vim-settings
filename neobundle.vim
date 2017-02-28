@@ -22,13 +22,14 @@ NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
 "NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'python-mode/python-mode'
 
 " interface
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'Shougo/vimproc.vim', {
     \ 'build': {
     \   'mac': 'make -f make_mac.mak',
@@ -44,10 +45,11 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
-NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 't9md/vim-choosewin'
 "NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'vim-scripts/draw.vim'
 
 " utilities
 NeoBundle 'tpope/vim-abolish'

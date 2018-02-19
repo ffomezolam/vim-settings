@@ -69,8 +69,7 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
     \ },
     \ 'autoload': { 'filetypes': ['javascript'] },
 \ }
-"NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'ldong/vim_loremipsum'
 NeoBundle 'antoyo/vim-licenses'
 

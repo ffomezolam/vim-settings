@@ -111,6 +111,10 @@ set foldenable
 set foldcolumn=2
 set foldmethod=indent
 " }}}
+" projects {{{
+set exrc
+set secure
+" }}}
 "
 " End Settings }}}
 
